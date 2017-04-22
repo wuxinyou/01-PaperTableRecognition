@@ -1,0 +1,5 @@
+﻿  test033101.cpp
+  readXML.cpp
+d:\documents\visual studio 2013\projects\_opencv\houghlinesp20170421\test033101\readxml.cpp(167): warning C4018: '<' : signed/unsigned mismatch
+  Generating Code...
+  test033101.vcxproj -> D:\Documents\Visual Studio 2013\Projects\_OpenCV\HoughLinesP20170421\Debug\test033101.exe
