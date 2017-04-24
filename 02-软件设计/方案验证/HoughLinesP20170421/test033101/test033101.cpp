@@ -222,6 +222,7 @@ void findAllBorder()
 	drawCell(srcImage);
 
 	imshow("AfterHoughLinesP", srcImage);
+
 }
 
 

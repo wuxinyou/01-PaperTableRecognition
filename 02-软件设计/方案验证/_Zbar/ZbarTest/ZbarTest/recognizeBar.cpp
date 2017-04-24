@@ -25,6 +25,7 @@ void recBar(Mat img)
 	{
 		cout << "类型：" << endl << symbol->get_type_name() << endl << endl;
 		cout << "条码：" << endl << symbol->get_data() << endl << endl;
+		cout << "条码长度： " << endl << sizeof(symbol->get_data()) << endl;
 	}
 
 	imageZbar.set_data(NULL, 0);
