@@ -129,8 +129,9 @@ void CPTOCRDlg::MyInit()
 
 	imshow("Source Image", image);
 
-
+	//查找定位边框，并返回坐标
 	processImage.FindOutBorder2(image);
+
 	//擦除所有表格边框
 	processImage.WipeSheetBorder(image);
 	
