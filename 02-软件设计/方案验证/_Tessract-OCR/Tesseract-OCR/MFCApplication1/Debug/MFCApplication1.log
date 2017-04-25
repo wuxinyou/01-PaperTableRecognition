@@ -1,0 +1,13 @@
+﻿  stdafx.cpp
+  MFCApplication1Dlg.cpp
+e:\12-myopensourceproject\01-papertablerecognition\02-软件设计\方案验证\_tessract-ocr\tesseract-ocr\mfcapplication1\include\strngs.h(61): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+e:\12-myopensourceproject\01-papertablerecognition\02-软件设计\方案验证\_tessract-ocr\tesseract-ocr\mfcapplication1\include\unicharset.h(47): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+e:\12-myopensourceproject\01-papertablerecognition\02-软件设计\方案验证\_tessract-ocr\tesseract-ocr\mfcapplication1\include\unicharset.h(274): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+e:\12-myopensourceproject\01-papertablerecognition\02-软件设计\方案验证\_tessract-ocr\tesseract-ocr\mfcapplication1\include\unicharset.h(299): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+  MFCApplication1.cpp
+  Generating Code...
+  MFCApplication1.vcxproj -> E:\12-MyOpenSourceProject\01-PaperTableRecognition\02-软件设计\方案验证\_Tessract-OCR\Tesseract-OCR\Debug\MFCApplication1.exe

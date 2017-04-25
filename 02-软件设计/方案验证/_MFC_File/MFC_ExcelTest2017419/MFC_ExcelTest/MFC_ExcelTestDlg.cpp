@@ -163,6 +163,7 @@ void CMFC_ExcelTestDlg::CreateExcelFile()
 
 
 	TCHAR FilePath[MAX_PATH];
+	//获取当前目录
 	GetModuleFileName(NULL, FilePath, MAX_PATH);
 	(_tcsrchr(FilePath, '\\'))[1] = 0;
 	lstrcat(FilePath, _T("MFC_ExcelTest.xlsx"));

@@ -1,10 +1,40 @@
 
+
+
+
+/*************************************************************
+
+概述：使用OpenCV对图片文件进行操作，，
+包含查找最外矩形边框
+利用累计概率霍夫函数擦除边框
+调用Tesseract识别ROI
+
+作者：吴新有
+日期：20170425
+版本：v1.0
+**************************************************************/
+
 #include "stdafx.h"
 #include "ProcessImage.h"
+
+#include "include\\baseapi.h"
+#include "include\\strngs.h"
+
+
+#pragma  comment(lib,"libtesseract302.lib")
+
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#endif
+
+//using namespace std;
+
 
 
 ProcessImage::ProcessImage()
 {
+
+
 
 	srcImage = NULL;
 }
@@ -32,7 +62,7 @@ void  ProcessImage::WipeSheetBorder()
 	//imshow("边缘检测后的图", midImage);
 
 	vector<Vec4i> lines;
-	HoughLinesP(midImage, lines, 2, CV_PI / 180, 100, 50, 20);
+	HoughLinesP(midImage, lines, 2, CV_PI / 180, 200, 50, 20);
 	for (size_t i = 0; i < lines.size(); i++)
 	{
 		Vec4i l = lines[i];
@@ -108,9 +138,25 @@ void ProcessImage::ReadImage(Mat img)
 **************************************************************/
 string ProcessImage::RecROI(int x, int y, int width, int height)
 {
+	Mat sheetCellROI = srcImage(Rect(x, y, width, height));
+	Mat gray;
+	cvtColor(sheetCellROI, gray, CV_RGB2GRAY);
+
+	tesseract::TessBaseAPI tessOCR;
+	// Pass it to Tesseract API  
+
+	tessOCR.Init(NULL, "eng", tesseract::OEM_DEFAULT);
+	tessOCR.SetPageSegMode(tesseract::PSM_SINGLE_BLOCK);
+	tessOCR.SetImage((uchar*)gray.data, gray.cols, gray.rows, 1, gray.cols);
 	
 
 
+
+	imshow("sheetCell", gray);
+
+	 string str = tessOCR.GetUTF8Text();
+	 TRACE(str.c_str());
+	 return str;
 }
 
 

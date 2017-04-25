@@ -1,4 +1,13 @@
 
+/*************************************************************
+
+概述：使用MFC操作Excel文件，
+包含文件创建，文件打开，文件编辑，文件保存，进程关闭，后台运行
+作者：吴新有
+日期：20170425
+版本：v1.0
+**************************************************************/
+
 #include "stdafx.h"
 #include "ExcelOpera.h"
 
@@ -11,6 +20,7 @@ ExcelOpera::ExcelOpera()
 		AfxMessageBox(_T("初始化Ole出错！"));
 		return ;
 	}
+	isOpened = false;
 
 }
 
@@ -105,6 +115,9 @@ void ExcelOpera::OpenExistExcelFile(CString filePath)
 		//this->MessageBox(_T("无法创建Excel应用！"));
 		return;
 	}
+	
+	
+
 	books = app.get_Workbooks();
 
 	LPDISPATCH lpDisp;  //接口指针  
@@ -117,17 +130,55 @@ void ExcelOpera::OpenExistExcelFile(CString filePath)
 		);                  //与的不同，是个参数的，直接在后面加了两个covOptional成功了  
 	book.AttachDispatch(lpDisp);
 
+	isOpened = true;
+
 	//下面进行写操作
 	sheets = book.get_Worksheets();
 	sheet = sheets.get_Item(COleVariant((short)1));
+
+
+
+
+}
+
+/*********************************************************
+说明：编辑excel
+输入：const string cellNum单元格编号,const string str字符串
+返回：void
+***********************************************************/
+void ExcelOpera::EditExcel(const string cellNum, const string str)
+{
+	if (!isOpened)
+		return;
+
 	//获得坐标为（A，1）和（B，1）的两个单元格 
-	range = sheet.get_Range(COleVariant(_T("A1")), COleVariant(_T("B1")));
+	range = sheet.get_Range(COleVariant(CString(cellNum.c_str())), COleVariant(CString(cellNum.c_str())));
 	//设置单元格类容为Hello Exce
-	range.put_Value2(COleVariant(_T("Hello OpenExistExcelFile")));
+	range.put_Value2(COleVariant(CString(str.c_str())));
+}
+
+/*********************************************************
+说明：前台显示打开的Excel文件
+输入：void 
+返回：void 
+***********************************************************/
+void ExcelOpera::ShowExcel()
+{
+
+	//显示Excel表
+	app.put_Visible(TRUE);
+	app.put_UserControl(TRUE);
+}
+
+/*********************************************************
+说明：保存打开的excel文件，并关闭excel进程
+输入：void
+返回：void
+***********************************************************/
+void ExcelOpera::ExitExcel()
+{
 
 	book.Save();
-
-
 
 	app.Quit();
 	//m_ExlApp一定要释放，否则程序结束后还会有一个Excel进程驻留在内存中，而且程序重复运行的时候会出错   
