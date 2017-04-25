@@ -1,15 +1,26 @@
 
 
+
+
 #include "stdafx.h"
 #include "readXML.h"
 
 
 
 
-Border border;     //定义定位边框的边界结构体
-vector<Cell> vecCell;
 
-string dumpNode(TiXmlNode * pNode, int flag)
+
+ReadXML::ReadXML()
+{
+}
+
+ReadXML::~ReadXML()
+{
+}
+
+
+
+string ReadXML::dumpNode(TiXmlNode * pNode, int flag)
 {
 	string msg = "";
 
@@ -124,24 +135,29 @@ string dumpNode(TiXmlNode * pNode, int flag)
 	return msg;
 }
 
-
-void readXML()
+/*************************************************************
+说明：读取XML文件
+输入：文件名
+输出：void
+备注：
+**************************************************************/
+void ReadXML::readXMLFile(const string fileName)
 {
 
-	TiXmlDocument *myDocument = new TiXmlDocument("1521611168303.xml");
+	TiXmlDocument *myDocument = new TiXmlDocument(fileName.c_str());
 	myDocument->LoadFile();
 
 	//获得xml的头，即声明部分 
 	TiXmlDeclaration* decl = myDocument->FirstChild()->ToDeclaration();
 
-	cout << "xml文件的版本是:" << decl->Version() << endl;
-	cout << "xml的编码格式是：" << decl->Encoding() << endl;
-
+	//cout << "xml文件的版本是:" << decl->Version() << endl;
+	//cout << "xml的编码格式是：" << decl->Encoding() << endl;
+	//TRACE(decl->Encoding());
 	//获得根元素 
 	TiXmlElement *RootElement = myDocument->RootElement();
 
 	//输出根元素名称 
-	cout << RootElement->Value() << endl;
+	//cout << RootElement->Value() << endl;
 	TiXmlNode* pNode = NULL;
 
 
@@ -152,7 +168,14 @@ void readXML()
 	}
 }
 
-void printXML()
+
+/*************************************************************
+说明：打印输出读取的XML文件
+输入：void
+输出：void
+备注：
+**************************************************************/
+void ReadXML::print()
 {
 	//打印边框数据
 	cout << "border" << endl;

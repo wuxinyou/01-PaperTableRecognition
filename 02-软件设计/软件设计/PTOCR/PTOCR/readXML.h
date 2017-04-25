@@ -12,8 +12,6 @@
 using namespace std;
 
 
-#pragma comment(lib,"tinyxml.lib") 
-#pragma comment(lib,"tinyxmlSTL.lib") 
 
 
 //存放定位边框数据
@@ -36,12 +34,28 @@ typedef struct
 	string cellNum;
 }Cell;
 
+class ReadXML
+{
+public:
+	ReadXML();
+	~ReadXML();
+
+	
+	void readXMLFile(const string fileName);
+	void print();
+
+private:
+	string dumpNode(TiXmlNode * pNode, int flag);
+
+public:
+	Border border;     //定义定位边框的边界结构体
+	vector<Cell> vecCell;
+
+};
 
 
 
-string dumpNode(TiXmlNode * pNode, int flag);
-void readXML();
-void printXML();
+
 
 
 #endif

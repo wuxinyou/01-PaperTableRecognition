@@ -8,6 +8,7 @@
 #include "fileOpera.h"
 #include "recognizeBar.h"
 #include "ProcessImage.h"
+#include "readXML.h"
 
 
 // CPTOCRDlg dialog
@@ -41,6 +42,8 @@ private:
 	ExcelOpera excelOpera;
 	RecBar bar;
 	ProcessImage processImage;
+	ReadXML sheetXML;
+
 
 
 

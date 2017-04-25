@@ -1,9 +1,12 @@
+
 #include "stdafx.h"
 #include "ProcessImage.h"
 
 
 ProcessImage::ProcessImage()
 {
+
+	srcImage = NULL;
 }
 
 
@@ -19,11 +22,10 @@ ProcessImage::~ProcessImage()
 输出：void
 备注：
 **************************************************************/
-void  ProcessImage::WipeSheetBorder(Mat &srcImage)
+void  ProcessImage::WipeSheetBorder()
 {
-
 	//利用HoughLinesP擦除单元格边框
-	//Mat srcImage = imread("1521611168303.jpg");
+
 	Mat midImage;  //
 	Canny(srcImage, midImage, 50, 100, 3);
 
@@ -43,13 +45,13 @@ void  ProcessImage::WipeSheetBorder(Mat &srcImage)
 /*************************************************************
 说明：查找定位边框，并返回
 输入：Mat img 引用
-输出：Rect
+输出：void
 备注：测试通过
 **************************************************************/
-Rect ProcessImage::FindOutBorder2(Mat srcImage)
+void ProcessImage::FindOutBorder()
 {
 	vector<vector<Point2i>> contours;
-	Rect rect;
+	
 	Mat disImage=srcImage.clone();
 	Mat srcgray, disgray;
 	cvtColor(srcImage, srcgray, COLOR_RGB2GRAY);
@@ -70,12 +72,46 @@ Rect ProcessImage::FindOutBorder2(Mat srcImage)
 	drawContours(disImage, contours2, -1, Scalar(0), 2);
 	imshow("findOutBorder", disImage);
 
-	rect = boundingRect(contours2.back());
-	TRACE(_T("LocationBorder = %d,%d,%d,%d\r\n"), rect.x,rect.y,rect.width,rect.height);
-	return rect;
+	outBorder = boundingRect(contours2.back());
+	TRACE(_T("LocationBorder = %d,%d,%d,%d\r\n"), outBorder.x, outBorder.y, outBorder.width, outBorder.height);
+	
 }
 
 
+/*************************************************************
+说明：读入图片文件
+输入：const string 文件名
+输出：void
+备注：
+**************************************************************/
+void ProcessImage::ReadImage(const string &fileName)
+{
+	srcImage = imread(fileName);
+}
+
+/*************************************************************
+说明：读入图片文件
+输入：Mat 
+输出：void
+备注：
+**************************************************************/
+void ProcessImage::ReadImage(Mat img)
+{
+	srcImage = img;
+}
+
+/*************************************************************
+说明：识别图片中指定区域
+输入：int x,int y,int width,int height
+输出：string
+备注：
+**************************************************************/
+string ProcessImage::RecROI(int x, int y, int width, int height)
+{
+	
+
+
+}
 
 
 

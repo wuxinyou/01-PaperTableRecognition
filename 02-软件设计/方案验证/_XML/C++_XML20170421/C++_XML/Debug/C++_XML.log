@@ -1,3 +1,11 @@
-﻿  readXML.cpp
-d:\documents\visual studio 2013\projects\_xml\c++_xml20170421\c++_xml\readxml.cpp(166): warning C4018: '<' : signed/unsigned mismatch
-  C++_XML.vcxproj -> D:\Documents\Visual Studio 2013\Projects\_XML\C++_XML20170421\Debug\C++_XML.exe
+﻿  stdafx.cpp
+  readXML.cpp
+e:\12-myopensourceproject\01-papertablerecognition\02-软件设计\方案验证\_xml\c++_xml20170421\c++_xml\readxml.cpp(166): warning C4018: '<' : signed/unsigned mismatch
+  C++_XML.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+tinyxml.lib(tinystr.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'tinyxml.lib(tinystr.obj)' or at 'E:\12-MyOpenSourceProject\01-PaperTableRecognition\02-软件设计\方案验证\_XML\C++_XML20170421\Debug\vc120.pdb'; linking object as if no debug info
+tinyxml.lib(tinyxml.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'tinyxml.lib(tinyxml.obj)' or at 'E:\12-MyOpenSourceProject\01-PaperTableRecognition\02-软件设计\方案验证\_XML\C++_XML20170421\Debug\vc120.pdb'; linking object as if no debug info
+tinyxml.lib(tinyxmlerror.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'tinyxml.lib(tinyxmlerror.obj)' or at 'E:\12-MyOpenSourceProject\01-PaperTableRecognition\02-软件设计\方案验证\_XML\C++_XML20170421\Debug\vc120.pdb'; linking object as if no debug info
+tinyxml.lib(tinyxmlparser.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'tinyxml.lib(tinyxmlparser.obj)' or at 'E:\12-MyOpenSourceProject\01-PaperTableRecognition\02-软件设计\方案验证\_XML\C++_XML20170421\Debug\vc120.pdb'; linking object as if no debug info
+  C++_XML.vcxproj -> E:\12-MyOpenSourceProject\01-PaperTableRecognition\02-软件设计\方案验证\_XML\C++_XML20170421\Debug\C++_XML.exe

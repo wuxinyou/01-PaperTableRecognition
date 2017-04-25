@@ -130,19 +130,28 @@ void CPTOCRDlg::MyInit()
 	imshow("Source Image", image);
 
 	//查找定位边框，并返回坐标
-	processImage.FindOutBorder2(image);
+	processImage.ReadImage(image);
+	processImage.FindOutBorder();
 
 	//擦除所有表格边框
-	processImage.WipeSheetBorder(image);
+	processImage.WipeSheetBorder();
 	
 	imshow("AfterWipeBorder", image);
 
+
+
 	CString strDir = _T("E:\\12-MyOpenSourceProject\\01-PaperTableRecognition\\02-软件设计\\方案验证\\_MFC_File\\FileDataBase");
-	//this->TravelFolder(strDir, 0);
+	
 	CString fileName = CString(bar.getData().c_str());
 	fileName += _T(".xlsx");
 	CString findFilePath=NULL; 
 
+	string xmlFile = "E:\\12-MyOpenSourceProject\\01-PaperTableRecognition\\02-软件设计\\方案验证\\_MFC_File\\FileDataBase\\1521611168303.xml";
+	//读取XML
+	sheetXML.readXMLFile(xmlFile);
+	TRACE(_T("sheetXML = %d,%d,%d,%d\r\n"), sheetXML.border.x, sheetXML.border.y, sheetXML.border.width, sheetXML.border.height);
+
+	//查找文件
 	findFilePath = fileOpera.FindFilePath(strDir, fileName, 0);   //查找文件
 
 	TRACE(_T("findFilePath = %s\r\n"), findFilePath);

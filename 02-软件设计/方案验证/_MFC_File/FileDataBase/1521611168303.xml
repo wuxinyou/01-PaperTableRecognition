@@ -6,22 +6,22 @@
 	<border>
 		<x>0</x>
 		<y>0</y>
-		<width>888</width>
-		<height>420</height>
+		<width>854</width>
+		<height>414</height>
 	</border>
 	
 	<cells>
 		<cell_1>
 			<x>0</x>
-			<y>81</y>
-			<width>148</width>
+			<y>72</y>
+			<width>150</width>
 			<height>34</height>
 			<cellNum>A4</cellNum>
 		</cell_1>
 		<cell_2>
-			<x>148</x>
-			<y>81</y>
-			<width>148</width>
+			<x>150</x>
+			<y>72</y>
+			<width>50</width>
 			<height>34</height>
 			<cellNum>B4</cellNum>
 		</cell_2>
